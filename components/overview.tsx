@@ -14,38 +14,27 @@ export const Overview = () => {
       transition={{ delay: 0.5 }}
     >
       <div className="rounded-xl p-6 flex flex-col gap-8 leading-relaxed text-center max-w-xl">
-        <p className="flex flex-row justify-center gap-4 items-center">
-          <VercelIcon size={32} />
-          <span>+</span>
-          <MessageIcon size={32} />
+        <h1 className="text-3xl font-bold">
+          Welcome to{' '}
+          <span className="bg-gradient-to-r from-blue-600 to-cyan-500 text-transparent bg-clip-text">
+            Learner&apos;s Amigo
+          </span>
+          <span className="block text-xl mt-2 font-medium">AI Course Recommender</span>
+        </h1>
+        
+        <p className="text-lg">
+          Share your goals, ambitions, background and work profile to get your curated, personalized course recommendations.
         </p>
-        <p>
-          This is an{' '}
-          <Link
-            className="font-medium underline underline-offset-4"
-            href="https://github.com/vercel/ai-chatbot"
-            target="_blank"
-          >
-            open source
-          </Link>{' '}
-          chatbot template built with Next.js and the AI SDK by Vercel. It uses
-          the{' '}
-          <code className="rounded-md bg-muted px-1 py-0.5">streamText</code>{' '}
-          function in the server and the{' '}
-          <code className="rounded-md bg-muted px-1 py-0.5">useChat</code> hook
-          on the client to create a seamless chat experience.
-        </p>
-        <p>
-          You can learn more about the AI SDK by visiting the{' '}
-          <Link
-            className="font-medium underline underline-offset-4"
-            href="https://sdk.vercel.ai/docs"
-            target="_blank"
-          >
-            docs
-          </Link>
-          .
-        </p>
+
+        <div className="text-sm text-muted-foreground">
+          <p>To get started, simply:</p>
+          <ul className="mt-2 list-disc list-inside">
+            <li>Tell us about your educational background</li>
+            <li>Share your career goals and ambitions</li>
+            <li>Describe your work experience</li>
+            <li>Mention any specific skills you want to learn</li>
+          </ul>
+        </div>
       </div>
     </motion.div>
   );
