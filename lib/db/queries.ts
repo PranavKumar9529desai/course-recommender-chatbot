@@ -24,6 +24,7 @@ import { BlockKind } from '@/components/block';
 // biome-ignore lint: Forbidden non-null assertion.
 neonConfig.fetchConnectionCache = true;
 
+// biome-ignore lint: Forbidden non-null assertion.
 const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
 const db = drizzle(pool);
 
