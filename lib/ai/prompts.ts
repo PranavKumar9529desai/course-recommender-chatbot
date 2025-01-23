@@ -1,4 +1,4 @@
-import { BlockKind } from "@/components/block";
+import type { BlockKind } from "@/components/block";
 
 export const blocksPrompt = `
 Blocks is a special user interface mode that helps users with writing, editing, and other content creation tasks. When block is open, it is on the right side of the screen, while the conversation is on the left side. When creating or updating documents, changes are reflected in real-time on the blocks and visible to the user.
@@ -49,10 +49,67 @@ Important guidelines:
 5. If users ask unrelated questions, politely redirect them to course-related discussions
 6. Be encouraging and supportive of their learning goals
 
-Remember to note that your recommendations are AI-generated suggestions and users should do their own research too.
+Remember to:
+- Include 3-5 course recommendations at a time
+- Explain why each course is relevant to the user's goals
+- Add a brief conclusion after the recommendations
+- Note that these are AI-generated suggestions and users should do their own research too
+
+When a user selects a course by clicking or mentioning it, ALWAYS respond with:
+"Would you like me to create a complete learning roadmap for [Course Name]? This will include:
+- Detailed week-by-week study plan
+- Key concepts and milestones
+- Practice exercises and projects
+- Estimated time commitment
+- Additional resources
+
+Please confirm if you'd like to see the roadmap."
+
+Remember to:
+- Wait for user confirmation before creating the roadmap
+- Keep initial course recommendations concise
+- Make it clear that users can select any course for more details
 `;
 
-export const systemPrompt = `${regularPrompt}\n\n${blocksPrompt}\n\n${domainPrompt}`;
+export function formatCourseRecommendations(
+  courses: {
+    name: string;
+    price: string;
+    author: string;
+    link: string;
+    rating?: string;
+    coverage: string[];
+    requirements?: string[];
+  }[]
+): string {
+  const romanNumerals = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x'];
+  
+  return `${courses
+    .map(
+      (course, index) => `
+[Course #${index + 1}] (Click to select this course)
+=================
+Name   : ${course.name}
+Price  : ${course.price}
+Author : ${course.author}
+Link   : ${course.link}
+${course.rating ? `Rating : ${course.rating}` : ""}
+
+What you'll learn:
+${course.coverage.map((point, idx) => `${romanNumerals[idx]}. ${point}`).join('\n')}
+
+${course.requirements 
+  ? `Requirements:
+${course.requirements.map((req, idx) => `${romanNumerals[idx]}. ${req}`).join('\n')}` 
+  : ""}
+`
+    )
+    .join("\n\n---\n\n")}
+
+(Click on any course number above to get a detailed learning roadmap for that course)`;
+}
+
+export const systemPrompt = `${regularPrompt}\n\n${blocksPrompt}\n\n${domainPrompt}\n\n${formatCourseRecommendations}`;
 
 export const codePrompt = `
 You are a Python code generator that creates self-contained, executable code snippets. When writing code:
@@ -99,3 +156,39 @@ Improve the following code snippet based on the given prompt.
 ${currentContent}
 `
     : "";
+
+// Add a new export for roadmap generation format
+export const roadmapPrompt = `
+When creating a course roadmap, use this structure:
+
+COURSE ROADMAP: [Course Name]
+============================
+
+OVERVIEW
+--------
+- Total Duration: [X] weeks
+- Time Commitment: [X] hours/week
+- Difficulty Level: [Beginner/Intermediate/Advanced]
+
+WEEKLY BREAKDOWN
+---------------
+Week 1: [Topic]
+- Learning objectives
+- Key concepts
+- Practice exercises
+- Project/Assignment
+
+[Continue for each week...]
+
+MILESTONES
+----------
+- Milestone 1: [Description]
+- Milestone 2: [Description]
+...
+
+ADDITIONAL RESOURCES
+-------------------
+- Resource 1
+- Resource 2
+...
+`;
