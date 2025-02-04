@@ -1,8 +1,28 @@
+"use client"
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import HerosectionImage from "@/app/home/assests/herosecionrmbg.webp";
 import { CTAButton } from "../components/cta-button";
+import { MobileHeroSection } from "./mobile-hero";
 
 export function HeroSection() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  if (isMobile) {
+    return <MobileHeroSection />;
+  }
+
   return (
     <section className="w-full min-h-screen bg-gradient-to-b from-gray-50 to-white overflow-hidden relative flex items-center pt-20 md:pt-0 md:-mt-12">
       <div className="max-w-7xl mx-auto h-full flex items-center justify-evenly md:flex-row flex-col px-4 sm:px-6 lg:px-8 lg:ml-[200px]">
