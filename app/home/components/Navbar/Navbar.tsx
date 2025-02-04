@@ -28,7 +28,7 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
+    <nav className={`fixed w-full z-[100] transition-all duration-300 ${
       scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,13 +87,13 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div className={`md:hidden fixed inset-0 bg-white/95 backdrop-blur-sm transition-all duration-300 ${
-        isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+      <div className={`md:hidden fixed inset-0 bg-white z-[90] transition-all duration-300 ${
+        isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
       }`}>
-        {/* Add close button */}
+        {/* Close button */}
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-6 right-6 p-2 hover:bg-gray-100 rounded-full transition-all duration-300"
+          className="absolute top-7 right-6 p-2 hover:bg-gray-100 rounded-full transition-all duration-300"
           aria-label="Close menu"
         >
           <svg
@@ -109,7 +109,24 @@ const Navbar = () => {
           </svg>
         </button>
 
-        <div className="flex flex-col items-center justify-center h-full space-y-8">
+        <div className="flex flex-col items-center justify-center min-h-screen space-y-6 px-4 py-8">
+          <Link 
+            href="/home" 
+            onClick={() => setIsOpen(false)}
+            className="flex items-center space-x-3 mb-8"
+          >
+            <Image
+              src={LeanersAmigoLogo}
+              alt="Learner's Amigo Logo"
+              width={40}
+              height={40}
+              className="cursor-pointer"
+            />
+            <span className="text-xl font-semibold text-gray-900">
+              Learner&apos;s Amigo
+            </span>
+          </Link>
+          
           <NavLink scrolled={scrolled} href="/about" onClick={() => setIsOpen(false)}>
             About Us
           </NavLink>
@@ -123,7 +140,7 @@ const Navbar = () => {
             onClick={() => setIsOpen(false)}
             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg
               transition-all duration-300 transform hover:scale-105 hover:shadow-md
-              active:scale-95"
+              active:scale-95 mt-4 w-full max-w-[200px]"
           >
             Start Chat
           </button>
@@ -147,7 +164,7 @@ const NavLink = ({
   <Link
     href={href}
     onClick={onClick}
-    className={`font-medium text-xl transition-all duration-300 relative group ${
+    className={`font-medium text-lg transition-all duration-300 relative group ${
       scrolled ? 'text-gray-700' : 'text-gray-900'
     }`}
   >
