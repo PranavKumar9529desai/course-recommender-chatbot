@@ -14,8 +14,10 @@ const AboutPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
         {/* Header Section */}
         <div className="text-center mb-20 space-y-4">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent
-                         hover:scale-105 transition-transform duration-300">
+          <h1
+            className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent
+                         hover:scale-105 transition-transform duration-300"
+          >
             About Us
           </h1>
           <p className="text-gray-600 text-xl max-w-2xl mx-auto">
@@ -27,27 +29,37 @@ const AboutPage = () => {
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           {/* Left Column - Content */}
           <div className="lg:w-1/2 space-y-8">
-            <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg 
-                          hover:-translate-y-1 transition-all duration-300">
+            <div
+              className="bg-white/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg 
+                          hover:-translate-y-1 transition-all duration-300"
+            >
               <div className="flex items-center mb-6">
                 <HeartIcon className="size-8 text-blue-600" />
-                <h2 className="text-2xl font-semibold text-gray-900 ml-4">Our Mission</h2>
+                <h2 className="text-2xl font-semibold text-gray-900 ml-4">
+                  Our Mission
+                </h2>
               </div>
               <p className="text-gray-600 leading-relaxed text-lg">
-                We're dedicated to making education more accessible and personalized through 
-                innovative AI technology, helping every learner reach their full potential.
+                We&apos;re dedicated to making education more accessible and
+                personalized through innovative AI technology, helping every
+                learner reach their full potential.
               </p>
             </div>
 
-            <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg
-                          hover:-translate-y-1 transition-all duration-300">
+            <div
+              className="bg-white/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg
+                          hover:-translate-y-1 transition-all duration-300"
+            >
               <div className="flex items-center mb-6">
                 <RocketLaunchIcon className="size-8 text-blue-600" />
-                <h2 className="text-2xl font-semibold text-gray-900 ml-4">Our Vision</h2>
+                <h2 className="text-2xl font-semibold text-gray-900 ml-4">
+                  Our Vision
+                </h2>
               </div>
               <p className="text-gray-600 leading-relaxed text-lg">
-                To create a world where quality education knows no bounds, powered by AI that 
-                understands and adapts to each individual's learning journey.
+                To create a world where quality education knows no bounds,
+                powered by AI that understands and adapts to each individual&apos;s
+                learning journey.
               </p>
             </div>
           </div>

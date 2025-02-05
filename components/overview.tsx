@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import Image from "next/image";
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export const Overview = () => {
   return (
@@ -45,8 +45,8 @@ export const Overview = () => {
 
           <div className="bg-secondary/50 rounded-lg p-5 backdrop-blur-sm">
             <p className="text-lg mb-4">
-              Share your goals, ambitions, background and work profile to get your
-              curated, personalized course recommendations.
+              Share your goals, ambitions, background and work profile to get
+              your curated, personalized course recommendations.
             </p>
 
             <div className="text-sm text-muted-foreground">

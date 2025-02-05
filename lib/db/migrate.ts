@@ -1,3 +1,7 @@
+import WebSocket from "ws";
+// @ts-ignore
+globalThis.WebSocket = WebSocket;
+
 import { config } from 'dotenv';
 import { drizzle } from 'drizzle-orm/neon-serverless';
 import { migrate } from 'drizzle-orm/neon-serverless/migrator';

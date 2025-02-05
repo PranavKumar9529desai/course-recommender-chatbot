@@ -24,7 +24,7 @@ export const models: Array<Model> = [
     id: 'learners-amigo',
     label: "Learner's Amigo Recommender",
     apiIdentifier: 'gpt-4o-mini',
-    description: 'Personalized course recommender for users'
+    description: 'Personalized course recommender for users',
   },
 ] as const;
 

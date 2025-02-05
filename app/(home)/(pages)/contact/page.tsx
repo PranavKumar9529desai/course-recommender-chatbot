@@ -1,5 +1,9 @@
 import React from 'react';
-import { EnvelopeIcon, UserIcon, PaperAirplaneIcon } from '@heroicons/react/24/outline';
+import {
+  EnvelopeIcon,
+  UserIcon,
+  PaperAirplaneIcon,
+} from '@heroicons/react/24/outline';
 
 const ContactPage = () => {
   return (
@@ -15,14 +19,17 @@ const ContactPage = () => {
             Get in Touch
           </h1>
           <p className="text-gray-600 text-lg">
-            We're here to help you on your learning journey
+            We&apos;re here to help you on your learning journey
           </p>
         </div>
 
         <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
           <form className="space-y-6">
             <div className="group">
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Name
               </label>
               <div className="relative">
@@ -37,7 +44,10 @@ const ContactPage = () => {
             </div>
 
             <div className="group">
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Email
               </label>
               <div className="relative">
@@ -52,7 +62,10 @@ const ContactPage = () => {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Message
               </label>
               <textarea

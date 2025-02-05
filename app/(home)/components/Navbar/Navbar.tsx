@@ -1,8 +1,9 @@
 'use client';
-import Image from "next/image";
-import Link from "next/link";
-import LeanersAmigoLogo from "@/public/learneramigologo1.webp";
-import { useEffect, useState } from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import LeanersAmigoLogo from '@/public/learneramigologo1.webp';
+import { useEffect, useState } from 'react';
+import { CTAButton } from '../cta-button'; // added import
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -28,15 +29,14 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <nav className={`fixed w-full z-[100] transition-all duration-300  ${
-      scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
-    }`}>
+    <nav
+      className={`fixed w-full z-[100] transition-all duration-300  ${
+        scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link 
-            href="/home" 
-            className="shrink-0 flex items-center space-x-3 group"
-          >
+          <Link href="/" className="shrink-0 flex items-center space-x-3 group">
             <Image
               src={LeanersAmigoLogo}
               alt="Learner's Amigo Logo"
@@ -44,41 +44,53 @@ const Navbar = () => {
               height={45}
               className="cursor-pointer transition-transform duration-300 group-hover:scale-105"
             />
-            <span className={`text-xl font-semibold transition-colors duration-300 ${
-              scrolled ? 'text-gray-800' : 'text-gray-900'
-            }`}>
+            <span
+              className={`text-xl font-semibold transition-colors duration-300 ${
+                scrolled ? 'text-gray-800' : 'text-gray-900'
+              }`}
+            >
               Learner&apos;s Amigo
             </span>
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <NavLink scrolled={scrolled} href="/about">About Us</NavLink>
-            <NavLink scrolled={scrolled} href="/team">Our Team</NavLink>
-            <NavLink scrolled={scrolled} href="/contact">Contact</NavLink>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg
-              transition-all duration-300 hover:scale-105 hover:shadow-md active:scale-95">
-              Start Chat
-            </button>
+            <NavLink scrolled={scrolled} href="/about">
+              About Us
+            </NavLink>
+            <NavLink scrolled={scrolled} href="/team">
+              Our Team
+            </NavLink>
+            <NavLink scrolled={scrolled} href="/contact">
+              Contact
+            </NavLink>
+            <CTAButton variant="primary">Start Chat</CTAButton>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
+              type="button"
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md"
               aria-label="Toggle menu"
             >
               <div className="relative w-6 h-5">
-                <span className={`absolute w-6 h-0.5 bg-gray-900 transition-all duration-300${
-                  isOpen ? 'rotate-45 translate-y-2.5' : ''
-                }`} />
-                <span className={`absolute w-6 h-0.5 bg-gray-900 top-2 transition-all duration-300 ${
-                  isOpen ? 'opacity-0' : ''
-                }`} />
-                <span className={`absolute w-6 h-0.5 bg-gray-900 top-4 transition-all duration-300${
-                  isOpen ? '-rotate-45 -translate-y-2.5' : ''
-                }`} />
+                <span
+                  className={`absolute w-6 h-0.5 bg-gray-900 transition-all duration-300${
+                    isOpen ? 'rotate-45 translate-y-2.5' : ''
+                  }`}
+                />
+                <span
+                  className={`absolute w-6 h-0.5 bg-gray-900 top-2 transition-all duration-300 ${
+                    isOpen ? 'opacity-0' : ''
+                  }`}
+                />
+                <span
+                  className={`absolute w-6 h-0.5 bg-gray-900 top-4 transition-all duration-300${
+                    isOpen ? '-rotate-45 -translate-y-2.5' : ''
+                  }`}
+                />
               </div>
             </button>
           </div>
@@ -86,11 +98,16 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div className={`md:hidden fixed inset-0 bg-white z-[90] transition-all duration-300  ${
-        isOpen ? 'opacity-100 visible bg-white' : 'opacity-0 invisible pointer-events-none'
-      }`}>
+      <div
+        className={`md:hidden fixed inset-0 bg-white/95 backdrop-blur-sm z-[90] transition-all duration-300 ${
+          isOpen
+            ? 'opacity-100 visible'
+            : 'opacity-0 invisible pointer-events-none'
+        }`}
+      >
         {/* Close button */}
         <button
+          type="button"
           onClick={() => setIsOpen(false)}
           className="absolute top-7 right-6 p-2 hover:bg-gray-100 rounded-full transition-all duration-300"
           aria-label="Close menu"
@@ -104,15 +121,15 @@ const Navbar = () => {
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path d="M6 18L18 6M6 6l12 12"></path>
+            <path d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
 
         <div className="flex flex-col items-center justify-center min-h-screen space-y-6 px-4 py-8">
-          <Link 
-            href="/home" 
-            onClick={() => setIsOpen(false)}
+          <Link
+            href="/chat"
             className="flex items-center space-x-3 mb-8"
+            onClick={() => setIsOpen(false)}
           >
             <Image
               src={LeanersAmigoLogo}
@@ -125,24 +142,31 @@ const Navbar = () => {
               Learner&apos;s Amigo
             </span>
           </Link>
-          
-          <NavLink scrolled={scrolled} href="/about" onClick={() => setIsOpen(false)}>
+
+          <NavLink
+            scrolled={scrolled}
+            href="/about"
+            onClick={() => setIsOpen(false)}
+          >
             About Us
           </NavLink>
-          <NavLink scrolled={scrolled} href="/team" onClick={() => setIsOpen(false)}>
+          <NavLink
+            scrolled={scrolled}
+            href="/team"
+            onClick={() => setIsOpen(false)}
+          >
             Our Team
           </NavLink>
-          <NavLink scrolled={scrolled} href="/contact" onClick={() => setIsOpen(false)}>
+          <NavLink
+            scrolled={scrolled}
+            href="/contact"
+            onClick={() => setIsOpen(false)}
+          >
             Contact
           </NavLink>
-          <button 
-            onClick={() => setIsOpen(false)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg
-              transition-all duration-300 hover:scale-105 hover:shadow-md active:scale-95
-              mt-4 w-full max-w-[200px]"
-          >
+          <CTAButton variant="primary" className="mt-4 w-full max-w-[200px]">
             Start Chat
-          </button>
+          </CTAButton>
         </div>
       </div>
     </nav>
@@ -153,7 +177,7 @@ const NavLink = ({
   href,
   children,
   scrolled,
-  onClick
+  onClick,
 }: {
   href: string;
   children: React.ReactNode;
@@ -168,7 +192,7 @@ const NavLink = ({
     }`}
   >
     {children}
-    <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300 group-hover:left-0"></span>
+    <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300 group-hover:left-0" />
   </Link>
 );
 

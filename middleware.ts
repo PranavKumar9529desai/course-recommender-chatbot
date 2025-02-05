@@ -1,9 +1,25 @@
-import NextAuth from 'next-auth';
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+import { getToken } from 'next-auth/jwt';
 
-import { authConfig } from '@/app/(auth)/auth.config';
+export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
 
-export default NextAuth(authConfig).auth;
+  // Protect /chat routes
+  if (pathname.startsWith('/chat')) {
+    const token = await getToken({
+      req: request,
+      secret: process.env.NEXTAUTH_SECRET,
+    });
+    if (!token) {
+      // Redirect unauthenticated users to /login
+      return NextResponse.redirect(new URL('/login', request.url));
+    }
+  }
+
+  return NextResponse.next();
+}
 
 export const config = {
-  matcher: ['/', '/:id', '/api/:path*', '/login', '/register'],
+  matcher: ['/chat/:path*'],
 };

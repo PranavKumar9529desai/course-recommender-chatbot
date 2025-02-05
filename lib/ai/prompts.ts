@@ -1,4 +1,4 @@
-import type { BlockKind } from "@/components/block";
+import type { BlockKind } from '@/components/block';
 
 export const blocksPrompt = `
 Blocks is a special user interface mode that helps users with writing, editing, and other content creation tasks. When block is open, it is on the right side of the screen, while the conversation is on the left side. When creating or updating documents, changes are reflected in real-time on the blocks and visible to the user.
@@ -32,7 +32,7 @@ Do not update document right after creating it. Wait for user feedback or reques
 `;
 
 export const regularPrompt =
-  "You are a friendly assistant! Keep your responses concise and helpful.";
+  'You are a friendly assistant! Keep your responses concise and helpful.';
 
 export const domainPrompt = `
 You are "Learner's Amigo" - an AI course recommender chatbot. Welcome users warmly and guide them to share:
@@ -80,10 +80,21 @@ export function formatCourseRecommendations(
     rating?: string;
     coverage: string[];
     requirements?: string[];
-  }[]
+  }[],
 ): string {
-  const romanNumerals = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x'];
-  
+  const romanNumerals = [
+    'i',
+    'ii',
+    'iii',
+    'iv',
+    'v',
+    'vi',
+    'vii',
+    'viii',
+    'ix',
+    'x',
+  ];
+
   return `${courses
     .map(
       (course, index) => `
@@ -93,18 +104,20 @@ Name   : ${course.name}
 Price  : ${course.price}
 Author : ${course.author}
 Link   : ${course.link}
-${course.rating ? `Rating : ${course.rating}` : ""}
+${course.rating ? `Rating : ${course.rating}` : ''}
 
 What you'll learn:
 ${course.coverage.map((point, idx) => `${romanNumerals[idx]}. ${point}`).join('\n')}
 
-${course.requirements 
-  ? `Requirements:
-${course.requirements.map((req, idx) => `${romanNumerals[idx]}. ${req}`).join('\n')}` 
-  : ""}
-`
+${
+  course.requirements
+    ? `Requirements:
+${course.requirements.map((req, idx) => `${romanNumerals[idx]}. ${req}`).join('\n')}`
+    : ''
+}
+`,
     )
-    .join("\n\n---\n\n")}
+    .join('\n\n---\n\n')}
 
 (Click on any course number above to get a detailed learning roadmap for that course)`;
 }
@@ -141,21 +154,21 @@ print(f"Factorial of 5 is: {factorial(5)}")
 
 export const updateDocumentPrompt = (
   currentContent: string | null,
-  type: BlockKind
+  type: BlockKind,
 ) =>
-  type === "text"
+  type === 'text'
     ? `\
 Improve the following contents of the document based on the given prompt.
 
 ${currentContent}
 `
-    : type === "code"
-    ? `\
+    : type === 'code'
+      ? `\
 Improve the following code snippet based on the given prompt.
 
 ${currentContent}
 `
-    : "";
+      : '';
 
 // Add a new export for roadmap generation format
 export const roadmapPrompt = `

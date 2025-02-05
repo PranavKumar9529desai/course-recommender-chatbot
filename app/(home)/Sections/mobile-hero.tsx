@@ -1,6 +1,7 @@
-import Image from "next/image";
-import HerosectionImage from "@/app/(home)/assests/herosecionrmbg.webp";
-import { CTAButton } from "../components/cta-button";
+import Image from 'next/image';
+import HerosectionImage from '@/app/(home)/assests/herosecionrmbg.webp';
+import { CTAButton } from '../components/cta-button';
+import { motion } from 'framer-motion';
 
 export function MobileHeroSection() {
   return (
@@ -9,7 +10,7 @@ export function MobileHeroSection() {
       <div className="absolute inset-0 z-0">
         {/* Base gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100" />
-        
+
         {/* Image with its overlay */}
         <div className="absolute inset-0">
           <Image
@@ -24,14 +25,19 @@ export function MobileHeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-20 text-center">
+      <motion.div
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7 }}
+        className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-20 text-center"
+      >
         <div className="space-y-6">
           <h1 className="text-4xl font-extrabold tracking-tight animate-slideIn">
             <span className="bg-gradient-to-r from-blue-600 via-purple-500 to-purple-600 text-transparent bg-clip-text">
               Learner&apos;s Amigo
             </span>
           </h1>
-          
+
           <p className="text-base text-gray-700 leading-relaxed font-medium animate-slideIn">
             Your Personal AI-Powered Course Navigator that understands your
             learning style, goals, and preferences.
@@ -58,7 +64,7 @@ export function MobileHeroSection() {
             </CTAButton>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

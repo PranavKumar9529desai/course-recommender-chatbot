@@ -1,24 +1,33 @@
+import { motion } from 'framer-motion';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from '@/components/ui/accordion';
 
 export function FAQSection() {
   return (
-    <section className="w-full py-16 bg-gray-50">
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.7 }}
+      className="w-full py-16 bg-gray-50"
+    >
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
           Frequently Asked Questions
         </h2>
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible>
-            <AccordionItem value="item-1">
-              <AccordionTrigger>
+          <Accordion type="single" collapsible className="space-y-4">
+            <AccordionItem
+              value="item-1"
+              className="border rounded-lg bg-white px-4 shadow-sm"
+            >
+              <AccordionTrigger className="hover:bg-gray-50 py-4 text-gray-900">
                 How does the AI-powered course recommendation system work?
               </AccordionTrigger>
-              <AccordionContent>
+              <AccordionContent className="pb-4 text-gray-700">
                 Our AI system analyzes your interests, learning style, and
                 career goals to suggest personalized course recommendations. It
                 uses advanced algorithms to match you with courses that align
@@ -26,23 +35,29 @@ export function FAQSection() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-2">
-              <AccordionTrigger>
+            <AccordionItem
+              value="item-2"
+              className="border rounded-lg bg-white px-4 shadow-sm"
+            >
+              <AccordionTrigger className="hover:bg-gray-50 py-4 text-gray-900">
                 Can I get recommendations for specific skill levels?
               </AccordionTrigger>
-              <AccordionContent>
-                Absolutely! Whether you're a beginner, intermediate, or advanced
-                learner, our system adapts to your expertise level. We'll
+              <AccordionContent className="pb-4 text-gray-700">
+                Absolutely! Whether you&apos;re a beginner, intermediate, or advanced
+                learner, our system adapts to your expertise level. We&apos;ll
                 suggest courses that match your current skills while helping you
                 progress to the next level.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-3">
-              <AccordionTrigger>
+            <AccordionItem
+              value="item-3"
+              className="border rounded-lg bg-white px-4 shadow-sm"
+            >
+              <AccordionTrigger className="hover:bg-gray-50 py-4 text-gray-900">
                 What makes this recommender different from others?
               </AccordionTrigger>
-              <AccordionContent>
+              <AccordionContent className="pb-4 text-gray-700">
                 Unlike traditional systems, our chatbot combines real-time
                 interaction with smart learning patterns. It not only recommends
                 courses but also adapts to your feedback and learning progress,
@@ -50,11 +65,14 @@ export function FAQSection() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-4">
-              <AccordionTrigger>
+            <AccordionItem
+              value="item-4"
+              className="border rounded-lg bg-white px-4 shadow-sm"
+            >
+              <AccordionTrigger className="hover:bg-gray-50 py-4 text-gray-900">
                 How often are course recommendations updated?
               </AccordionTrigger>
-              <AccordionContent>
+              <AccordionContent className="pb-4 text-gray-700">
                 Our system continuously updates its recommendations based on new
                 course availability, your progress, and changing industry
                 trends. This ensures you always have access to the most relevant
@@ -64,6 +82,6 @@ export function FAQSection() {
           </Accordion>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
