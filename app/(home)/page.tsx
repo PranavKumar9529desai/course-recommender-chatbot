@@ -3,6 +3,7 @@ import { HeroSection } from "./Sections/hero-section";
 import { FeaturesSection } from "./Sections/features-section";
 import { TestimonialsSection } from "./Sections/testimonials-section";
 import { CTASection } from "./Sections/cta-section";
+import { FAQSection } from "./Sections/faq-sections";
 import Navbar from "./components/Navbar/Navbar";
 
 export default function Page() {
@@ -14,6 +15,7 @@ export default function Page() {
       <HeroSection />
       <FeaturesSection />
       <TestimonialsSection />
+      <FAQSection />
       <CTASection />
     </main>
   );

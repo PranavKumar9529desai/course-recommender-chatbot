@@ -232,3 +232,29 @@
 .suggestion-highlight {
     @apply bg-blue-200 hover:bg-blue-300 dark:hover:bg-blue-400/50 dark:text-blue-50 dark:bg-blue-500/40;
 }
+
+/* Swiper Custom Styles */
+.testimonials-swiper .swiper-pagination-bullet {
+  background: theme('colors.blue.500');
+}
+
+.testimonials-swiper .swiper-button-next,
+.testimonials-swiper .swiper-button-prev {
+  color: theme('colors.blue.500');
+  scale: 0.7;
+}
+
+.testimonials-swiper .swiper-button-next:hover,
+.testimonials-swiper .swiper-button-prev:hover {
+  color: theme('colors.blue.600');
+}
+
+/* Add these styles to your existing CSS */
+.swiper {
+  padding: 20px 50px !important;
+  margin: -20px -50px;
+}
+
+.swiper-slide {
+  height: auto !important;
+}
