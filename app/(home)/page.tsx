@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar/Navbar";
 export default function Page() {
   return (
     <main>
-      <div className="fixed top-0 left-0 right-0 z-[100]">
+      <div className="fixed top-0 inset-x-0 z-[100]">
         <Navbar />
       </div>
       <HeroSection />

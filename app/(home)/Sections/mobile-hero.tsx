@@ -1,5 +1,5 @@
 import Image from "next/image";
-import HerosectionImage from "@/app/home/assests/herosecionrmbg.webp";
+import HerosectionImage from "@/app/(home)/assests/herosecionrmbg.webp";
 import { CTAButton } from "../components/cta-button";
 
 export function MobileHeroSection() {

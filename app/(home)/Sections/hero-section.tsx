@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import HerosectionImage from "@/app/home/assests/herosecionrmbg.webp";
+import HerosectionImage from "@/app/(home)/assests/herosecionrmbg.webp";
 import { CTAButton } from "../components/cta-button";
 import { MobileHeroSection } from "./mobile-hero";
 

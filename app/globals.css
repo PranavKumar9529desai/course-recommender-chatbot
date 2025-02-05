@@ -133,6 +133,22 @@
   to { transform: translateY(0); opacity: 1; }
 }
 
+@keyframes twinkle {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .animate-fadeIn {
   animation: fadeIn 1s ease-out;
 }
@@ -143,6 +159,19 @@
 
 .animate-slideUp {
   animation: slideUp 1s ease-out;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s infinite;
+}
+
+.animate-float {
+  animation: float 6s infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
 }
 
 .skeleton {

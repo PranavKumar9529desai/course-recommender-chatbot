@@ -45,7 +45,7 @@ export function TestimonialsSection() {
                   <h4 className="font-semibold">{testimonial.name}</h4>
                   <div className="flex text-yellow-400">
                     {[...Array(5)].map((_, i) => (
-                      <StarIcon key={i} className="w-4 h-4" />
+                      <StarIcon key={i} className="size-4" />
                     ))}
                   </div>
                 </div>
