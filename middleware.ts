@@ -1,19 +1,23 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
-import { getToken } from 'next-auth/jwt';
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { getToken } from "next-auth/jwt";
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Allow public routes
+  if (["/", "/about", "/team", "/contact"].includes(pathname)) {
+    return NextResponse.next();
+  }
+
   // Protect /chat routes
-  if (pathname.startsWith('/chat')) {
+  if (pathname.startsWith("/chat")) {
     const token = await getToken({
       req: request,
-      secret: process.env.NEXTAUTH_SECRET,
+      secret: process.env.AUTH_SECRET,
     });
     if (!token) {
-      // Redirect unauthenticated users to /login
-      return NextResponse.redirect(new URL('/login', request.url));
+      return NextResponse.redirect(new URL("/login", request.url));
     }
   }
 
@@ -21,5 +25,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/chat/:path*'],
+  matcher: ["/", "/about", "/team", "/contact", "/chat/:path*"],
 };
