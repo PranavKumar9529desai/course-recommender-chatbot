@@ -14,7 +14,8 @@ export async function middleware(request: NextRequest) {
   if (["/login", "/register"].includes(pathname)) {
     const token = await getToken({
       req: request,
-      secret: process.env.AUTH_SECRET,
+      // Use NEXTAUTH_SECRET if available, fallback to AUTH_SECRET
+      secret: process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET,
     });
     if (token) {
       return NextResponse.redirect(new URL("/chat", request.url));
@@ -25,7 +26,8 @@ export async function middleware(request: NextRequest) {
   if (pathname.startsWith("/chat")) {
     const token = await getToken({
       req: request,
-      secret: process.env.AUTH_SECRET,
+      // Use NEXTAUTH_SECRET if available, fallback to AUTH_SECRET
+      secret: process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET,
     });
     if (!token) {
       return NextResponse.redirect(new URL("/login", request.url));
