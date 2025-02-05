@@ -37,7 +37,9 @@ export async function middleware(request: NextRequest) {
       // Use NEXTAUTH_SECRET if available, fallback to AUTH_SECRET
       secret: process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET,
     });
+    alert(token);
     if (!token) {
+      alert("redirecting to login as the token is not available");
       return NextResponse.redirect(new URL("/login", request.url));
     }
   }
