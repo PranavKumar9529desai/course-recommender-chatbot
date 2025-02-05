@@ -5,7 +5,6 @@ import { TestimonialsSection } from "./Sections/testimonials-section";
 import { CTASection } from "./Sections/cta-section";
 import { FAQSection } from "./Sections/faq-sections";
 import Navbar from "./components/Navbar/Navbar";
-
 export default function Page() {
   return (
     <main>

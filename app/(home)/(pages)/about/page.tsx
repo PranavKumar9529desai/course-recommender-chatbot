@@ -1,96 +1,74 @@
 import React from 'react';
+import Image from 'next/image';
 import { RocketLaunchIcon, HeartIcon } from '@heroicons/react/24/outline';
+import aboutImage from '../../assests/ctasection.webp';
 
 const AboutPage = () => {
   return (
-    <div className="pt-24 min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-16 space-y-4">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            Meet Our Team
+    <div className="pt-24 min-h-screen bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-grid-slate-700/[0.1] bg-[size:20px_20px]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
+        {/* Header Section */}
+        <div className="text-center mb-20 space-y-4">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent
+                         hover:scale-105 transition-transform duration-300">
+            About Us
           </h1>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Passionate individuals dedicated to revolutionizing education through AI
+          <p className="text-gray-600 text-xl max-w-2xl mx-auto">
+            Empowering learners through AI-driven education
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {team.map((member, index) => (
-            <div 
-              key={index}
-              className="group relative overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-300"
-            >
-              <div className="aspect-square overflow-hidden">
-                <img 
-                  src={member.image} 
-                  alt={member.name}
-                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
-                />
+        {/* Main Content Grid */}
+        <div className="flex flex-col lg:flex-row gap-16 items-center">
+          {/* Left Column - Content */}
+          <div className="lg:w-1/2 space-y-8">
+            <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg 
+                          hover:-translate-y-1 transition-all duration-300">
+              <div className="flex items-center mb-6">
+                <HeartIcon className="size-8 text-blue-600" />
+                <h2 className="text-2xl font-semibold text-gray-900 ml-4">Our Mission</h2>
               </div>
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-blue-600 font-medium mb-3">{member.role}</p>
-                <p className="text-gray-600 text-sm">{member.description}</p>
-              </div>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                We're dedicated to making education more accessible and personalized through 
+                innovative AI technology, helping every learner reach their full potential.
+              </p>
             </div>
-          ))}
-        </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8">
-            <div className="flex items-center mb-6">
-              <HeartIcon className="w-8 h-8 text-blue-600" />
-              <h2 className="text-2xl font-semibold text-gray-900 ml-3">Our Mission</h2>
+            <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg
+                          hover:-translate-y-1 transition-all duration-300">
+              <div className="flex items-center mb-6">
+                <RocketLaunchIcon className="size-8 text-blue-600" />
+                <h2 className="text-2xl font-semibold text-gray-900 ml-4">Our Vision</h2>
+              </div>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                To create a world where quality education knows no bounds, powered by AI that 
+                understands and adapts to each individual's learning journey.
+              </p>
             </div>
-            <p className="text-gray-600 leading-relaxed">
-              We're dedicated to making education more accessible and personalized through 
-              innovative AI technology, helping every learner reach their full potential.
-            </p>
           </div>
 
-          <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-8">
-            <div className="flex items-center mb-6">
-              <RocketLaunchIcon className="w-8 h-8 text-blue-600" />
-              <h2 className="text-2xl font-semibold text-gray-900 ml-3">Our Vision</h2>
+          {/* Right Column - Image */}
+          <div className="lg:w-1/2">
+            <div className="relative aspect-[4/3] w-full">
+              <Image
+                src={aboutImage}
+                alt="About Us"
+                fill
+                className="rounded-2xl shadow-2xl object-contain hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
             </div>
-            <p className="text-gray-600 leading-relaxed">
-              To create a world where quality education knows no bounds, powered by AI that 
-              understands and adapts to each individual's learning journey.
-            </p>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
-const team = [
-  {
-    name: "Sarah Chen",
-    role: "AI Lead",
-    description: "Machine learning expert with a passion for educational technology",
-    image: "/team/sarah.jpg" // Add team member images
-  },
-  {
-    name: "Alex Rodriguez",
-    role: "Full Stack Developer",
-    description: "Architecture wizard bringing ideas to life through code",
-    image: "/team/alex.jpg"
-  },
-  {
-    name: "Maya Patel",
-    role: "UX Designer",
-    description: "Creating intuitive and delightful user experiences",
-    image: "/team/maya.jpg"
-  },
-  {
-    name: "James Wilson",
-    role: "Education Specialist",
-    description: "Former educator bringing real-world insights to our platform",
-    image: "/team/james.jpg"
-  }
-];
 
 export default AboutPage;

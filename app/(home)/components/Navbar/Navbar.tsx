@@ -54,7 +54,7 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <NavLink scrolled={scrolled} href="/about">About Us</NavLink>
-            <NavLink scrolled={scrolled} href="/features">Features</NavLink>
+            <NavLink scrolled={scrolled} href="/team">Our Team</NavLink>
             <NavLink scrolled={scrolled} href="/contact">Contact</NavLink>
             <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg
               transition-all duration-300 hover:scale-105 hover:shadow-md active:scale-95">
@@ -129,8 +129,8 @@ const Navbar = () => {
           <NavLink scrolled={scrolled} href="/about" onClick={() => setIsOpen(false)}>
             About Us
           </NavLink>
-          <NavLink scrolled={scrolled} href="/features" onClick={() => setIsOpen(false)}>
-            Features
+          <NavLink scrolled={scrolled} href="/team" onClick={() => setIsOpen(false)}>
+            Our Team
           </NavLink>
           <NavLink scrolled={scrolled} href="/contact" onClick={() => setIsOpen(false)}>
             Contact

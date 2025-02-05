@@ -5,16 +5,22 @@ import { CTAButton } from "../components/cta-button";
 export function MobileHeroSection() {
   return (
     <section className="relative w-full min-h-screen">
-      {/* Background Image */}
+      {/* Background Layers */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={HerosectionImage}
-          alt="AI Learning Assistant"
-          fill
-          priority
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/90 to-white/70" />
+        {/* Base gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100" />
+        
+        {/* Image with its overlay */}
+        <div className="absolute inset-0">
+          <Image
+            src={HerosectionImage}
+            alt="AI Learning Assistant"
+            fill
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/90 to-white/70" />
+        </div>
       </div>
 
       {/* Content */}

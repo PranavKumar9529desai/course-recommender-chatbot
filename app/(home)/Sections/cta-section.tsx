@@ -1,7 +1,7 @@
 // app/home/Sections/cta-section.tsx
 import { CTAButton } from "../components/cta-button";
 import { SparklesIcon } from '@heroicons/react/24/outline';
-
+import CtaImage from "../assests/ctasection.webp"; 
 export function CTASection() {
   return (
     <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
