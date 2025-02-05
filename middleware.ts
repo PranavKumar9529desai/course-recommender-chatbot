@@ -9,6 +9,17 @@ export async function middleware(request: NextRequest) {
   if (["/", "/about", "/team", "/contact"].includes(pathname)) {
     return NextResponse.next();
   }
+  
+  // Redirect logged-in users away from login/register routes
+  if (["/login", "/register"].includes(pathname)) {
+    const token = await getToken({
+      req: request,
+      secret: process.env.AUTH_SECRET,
+    });
+    if (token) {
+      return NextResponse.redirect(new URL("/chat", request.url));
+    }
+  }
 
   // Protect /chat routes
   if (pathname.startsWith("/chat")) {
@@ -25,5 +36,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/about", "/team", "/contact", "/chat/:path*"],
+  matcher: ["/", "/about", "/team", "/contact", "/chat/:path*", "/login", "/register"],
 };
