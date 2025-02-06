@@ -41,7 +41,7 @@ export function FeaturesSection() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 animate-slideUp">
                 {features.map((feature, i) => (
                   <motion.div
-                    key={i}
+                    key={i as number}
                     initial={{ scale: 0.9, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.5 }}
