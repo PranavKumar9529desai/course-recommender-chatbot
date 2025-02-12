@@ -41,7 +41,7 @@ export function HeroSection() {
               <div className="absolute -right-4 -top-4 size-20 bg-blue-500/10 rounded-full blur-xl" />
             </h1>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -52,7 +52,7 @@ export function HeroSection() {
               courses for your journey.
               {/* Add subtle highlight */}
               <div className="absolute -left-4 -bottom-4 size-32 bg-purple-500/10 rounded-full blur-xl -z-10" />
-            </motion.p>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
