@@ -1,7 +1,7 @@
 // app/home/Sections/cta-section.tsx
-import { CTAButton } from '../components/cta-button';
-import { SparklesIcon } from '@heroicons/react/24/outline';
-import { motion } from 'framer-motion';
+import { CTAButton } from "../components/cta-button";
+import { SparklesIcon } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
 
 export function CTASection() {
   return (
@@ -30,20 +30,23 @@ export function CTASection() {
           <div className="absolute bottom-0 right-0 size-32 bg-gradient-to-tl from-purple-100/30 to-transparent rounded-tl-full" />
 
           <SparklesIcon className="size-12 mx-auto mb-8 text-blue-600" />
-          
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Start Your{' '}
+
+          <h2
+            className="text-4xl md:text-5xl font-bold mb-6 text-black
+          "
+          >
+            Ready to Start Your{" "}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Learning Journey
             </span>
             ?
           </h2>
-          
+
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
             Join thousands of learners who have found their perfect courses with
             Learner&apos;s Amigo
           </p>
-          
+
           <CTAButton
             href="/chat"
             variant="primary"
