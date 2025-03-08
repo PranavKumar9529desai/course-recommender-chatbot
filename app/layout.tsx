@@ -1,3 +1,4 @@
+import { SessionProvider } from 'next-auth/react';
 import type { Metadata } from 'next';
 import { Toaster } from 'sonner';
 
@@ -6,9 +7,65 @@ import { ThemeProvider } from '@/components/theme-provider';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://chat.vercel.ai'),
-  title: 'Next.js Chatbot Template',
-  description: 'Next.js chatbot template using the AI SDK.',
+  metadataBase: new URL('https://learnersamigo.com'),
+  title: 'Learners Amigo - Your Personal Course Recommendation Assistant',
+  description: 'Get personalized course recommendations with AI-powered assistance. Find the perfect learning path tailored to your goals and interests.',
+  keywords: ['course recommendations', 'AI learning assistant', 'education', 'online courses', 'personalized learning'],
+  authors: [{ name: 'Learners Amigo Team' }],
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://learnersamigo.com',
+    title: 'Learners Amigo - Your Personal Course Recommendation Assistant',
+    description: 'Get personalized course recommendations with AI-powered assistance. Find the perfect learning path tailored to your goals and interests.',
+    siteName: 'Learners Amigo',
+    images: [{
+      url: '/icons/android-chrome-512x512.png',
+      width: 512,
+      height: 512,
+      alt: 'Learners Amigo Logo',
+      type: 'image/png',
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Learners Amigo - Your Personal Course Recommendation Assistant',
+    description: 'Get personalized course recommendations with AI-powered assistance.',
+    images: [{
+      url: '/icons/android-chrome-512x512.png',
+      width: 512,
+      height: 512,
+      alt: 'Learners Amigo Logo',
+      type: 'image/png',
+    }],
+    creator: '@learnersamigo',
+    site: '@learnersamigo',
+  },
+  icons: {
+    icon: [
+      { url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/icons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icons/favicon.ico', sizes: '48x48' },
+    ],
+    apple: [
+      { url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: 'android-chrome-192x192',
+        url: '/icons/android-chrome-192x192.png',
+      },
+      {
+        rel: 'android-chrome-512x512',
+        url: '/icons/android-chrome-512x512.png',
+      },
+      {
+        rel: 'manifest',
+        url: '/icons/site.webmanifest',
+      },
+    ],
+  },
+  manifest: '/icons/site.webmanifest',
 };
 
 export const viewport = {
@@ -57,15 +114,17 @@ export default async function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Toaster position="top-center" />
-          {children}
-        </ThemeProvider>
+        <SessionProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Toaster position="top-center" />
+            {children}
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );

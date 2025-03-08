@@ -1,10 +1,16 @@
 'use client';
 
-import { ChatRequestOptions, Message } from 'ai';
+import type { ChatRequestOptions, Message } from 'ai';
 import { Button } from './ui/button';
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+import {
+  type Dispatch,
+  type SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { Textarea } from './ui/textarea';
-import { deleteTrailingMessages } from '@/app/(chat)/actions';
+import { deleteTrailingMessages } from '@/app/(chat)/chat/actions';
 import { toast } from 'sonner';
 import { useUserMessageId } from '@/hooks/use-user-message-id';
 

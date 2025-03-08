@@ -29,6 +29,7 @@ export default function Page() {
     } else if (state.status === 'invalid_data') {
       toast.error('Failed validating your submission!');
     } else if (state.status === 'success') {
+      alert('Logged in successfully!');
       setIsSuccessful(true);
       router.refresh();
     }
