@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { SessionProvider } from 'next-auth/react';
 import type { Metadata } from 'next';
 import { Toaster } from 'sonner';
@@ -115,15 +116,17 @@ export default async function RootLayout({
       </head>
       <body className="antialiased">
         <SessionProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Toaster position="top-center" />
-            {children}
-          </ThemeProvider>
+          <Suspense fallback={null}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Toaster position="top-center" />
+              {children}
+            </ThemeProvider>
+          </Suspense>
         </SessionProvider>
       </body>
     </html>

@@ -6,9 +6,8 @@ import { generateUUID } from '@/lib/utils';
 import { DataStreamHandler } from '@/components/data-stream-handler';
 
 export default async function Page() {
-  const id = generateUUID();
-
   const cookieStore = await cookies();
+  const id = generateUUID();
   const modelIdFromCookie = cookieStore.get('model-id')?.value;
 
   const selectedModelId =
