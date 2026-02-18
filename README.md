@@ -1,3 +1,6 @@
+
+Link : https://course-recommender-chatbot.vercel.app/
+
 <p align="center">
   <img src="public/learneramigologo1.webp" alt="LearnAmigo Logo" width="200"/>
 </p>
